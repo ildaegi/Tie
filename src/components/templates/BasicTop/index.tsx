@@ -5,8 +5,6 @@ import { Screen, ContentsScreen } from '../../ui/Screens';
 import { BasicTopProps } from './type';
 
 export default function BasicTop({ contants, isScroll, ...props }: BasicTopProps) {
-  console.log({ paddingVertical: 8, paddingHorizontal: 8, ...props });
-
   return (
     <Screen>
       <ContentsScreen
