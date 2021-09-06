@@ -1,10 +1,6 @@
 import React from 'react';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-import Color from '../../constants/color';
-import { Text } from '../../components/ui/Texts';
 
 import { BottomTabNavigatorGenerator } from '../../types/navigation';
 import { AppStackNavigationProps } from '../Router';
@@ -26,52 +22,15 @@ export type MainTabParamList = {
   Test: TestScreenParams;
 };
 
+// tab menu visible only root screen
 const { BottomTab, screens } = BottomTabNavigatorGenerator<MainTabParamList>({
   Home: {
     component: HomeScreen,
-    options: {
-      tabBarIcon: ({ focused }) => (
-        <MaterialCommunityIcons
-          name={'home'}
-          size={18}
-          color={focused ? Color.mainColor : Color.black}
-        />
-      ),
-      tabBarLabel: ({ focused }) => (
-        <Text
-          style={{
-            color: focused ? Color.mainColor : Color.black,
-            fontSize: 14,
-          }}
-        >
-          홈
-        </Text>
-      ),
-      ...HomeScreenOptions,
-    },
+    options: HomeScreenOptions,
   },
   Test: {
     component: TestScreen,
-    options: {
-      tabBarIcon: ({ focused }) => (
-        <MaterialCommunityIcons
-          name={'hammer'}
-          size={18}
-          color={focused ? Color.mainColor : Color.black}
-        />
-      ),
-      tabBarLabel: ({ focused }) => (
-        <Text
-          style={{
-            color: focused ? Color.mainColor : Color.black,
-            fontSize: 14,
-          }}
-        >
-          테스트
-        </Text>
-      ),
-      ...TestScreenOptions,
-    },
+    options: TestScreenOptions,
   },
 });
 
